@@ -77,4 +77,24 @@ The most recent entries in the database can be retrieved (in JSON format) via yo
 ```
 [YOUR_IP_ADDRESS]:8000/api/data/latest
 ```
- 
+
+### Visualizing graphs of the data
+
+Graphs (experimental) may be found at:
+
+```
+[YOUR_IP_ADDRESS]:8000
+```
+
+### Sending new data to the endpoint server (simulating a LoRa gateway)
+
+The server is set up to receive JSON-formatted data via an HTTP POST.  You can test out this functionality by using the included convenience function, 'post.sh', located in the 'gateway_simulator' folder.  This function requires as a command line argument the IP address and port of the running server. 
+
+While the server is running in a terminal, open another terminal, and try a test data post:
+
+```
+./post.sh [YOUR_IP_ADDRESS]:8000
+```
+
+Every time that this script is run, it should add another entry to the database.
+
