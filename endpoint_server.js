@@ -14,6 +14,7 @@ function timeConverter(UNIX_timestamp){
   return time;
 }
 
+var ip = require("ip");
 var express = require("express")
 var app = express()
 var db = require("./database.js")
@@ -30,9 +31,13 @@ const fs = require('fs');
 
 var HTTP_PORT = 8000
 
+var local_ip = ip.address();
+
 // Start server
 app.listen(HTTP_PORT, () => {
-    console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
+	var outstring = "server running at "+local_ip.toString()+":"+HTTP_PORT.toString();
+	console.log(outstring);
+    //console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
 
@@ -40,10 +45,9 @@ app.listen(HTTP_PORT, () => {
 app.use(express.static('web'))
 
 // serve the most recent data points in JSON format
-app.get("/api/user/latest", (req, res, next) => {
+app.get("/api/data/latest", (req, res, next) => {
     console.log('all')
-    //var sql = "select * from user order by timestamp desc LIMIT 10"
-    var sql = "select * from user order by id desc LIMIT 500"
+    var sql = "select * from data order by id desc LIMIT 500"
     var params = []
     db.all(sql, params, (err, row) => {
         if (err) {
@@ -59,7 +63,7 @@ app.get("/api/user/latest", (req, res, next) => {
 
 // receive an HTTP POST of some JSON data, and stick it into the sqlite database
 //
-app.post("/api/simplepost", (req, res, next) => {
+app.post("/api/endpoint", (req, res, next) => {
     var errors=[]
 
    console.log('Got body:', req.body);
@@ -79,7 +83,7 @@ app.post("/api/simplepost", (req, res, next) => {
         press: pressure
     }
 
-    var sql ='INSERT INTO user (dateTime,dateHuman,temperature,humidity,pressure) VALUES (?,?,?,?,?)'
+    var sql ='INSERT INTO data (dateTime,dateHuman,temperature,humidity,pressure) VALUES (?,?,?,?,?)'
     var params =[ts,tsh,data.temp, data.humid, data.press]
     db.run(sql, params, function (err, result) {
         if (err){

@@ -16,7 +16,7 @@ function timeConverter(UNIX_timestamp){
 
 //fetch('http://localhost:8000/api/users/')
 
-fetch('http://192.168.1.146:8200/api/user/latest')
+fetch('http://192.168.1.192:8000/api/data/latest')
   .then((response) => {
     return response.json();
   })

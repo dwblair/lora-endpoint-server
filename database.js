@@ -28,8 +28,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
       throw err
     }else{
         console.log('Connected to the SQlite database.')
-        console.log('hooray');
-        db.run(`CREATE TABLE user (
+        db.run(`CREATE TABLE data (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             dateTime INTEGER,
 	    dateHuman TEXT,
@@ -39,19 +38,9 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             )`,(err) => {
         if (err) {
             // Table already created
-            console.log("already created");
+            console.log("found table 'data'");
         }else{
-            // Table just created, creating some rows
-/*
-    var insert ='INSERT INTO user (dateTime,dateHuman,temperature,humidity,pressure) VALUES (?,?,?,?,?)'
-            var ts = Math.round((new Date()).getTime() / 1000);
-	    var tsh = timeConverter(ts);
-            db.run(insert, [ts,tsh,0.0,0.0,0.0])
-            //db.run(insert, [12123124,19.2,23.2])
-		//
-		//
-		//
-		//*/
+            console.log("created table 'data'"); 
         }
     })  
     }
