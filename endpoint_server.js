@@ -1,4 +1,4 @@
-function timeConverter(UNIX_timestamp){
+/*function timeConverter(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);
 //      console.log(a);
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -13,11 +13,13 @@ function timeConverter(UNIX_timestamp){
   var time = year + '.' + month + '.' + date + '.' + hour + '.' + min + '.' + sec ;
   return time;
 }
+*/
 
+var format_time = require("./src/format_time.js")
 var ip = require("ip");
 var express = require("express")
 var app = express()
-var db = require("./database.js")
+var db = require("./src/database.js")
 var md5 = require("md5")
 const sqliteToCsv = require("sqlite-to-csv");
 var bodyParser = require("body-parser");
@@ -75,7 +77,7 @@ app.post("/api/endpoint", (req, res, next) => {
    var pressure = req.body.pressure; 
 
    var ts = Math.round((new Date()).getTime() / 1000);
-   var tsh = timeConverter(ts);
+   var tsh = format_time.convert(ts);
 
     var data = {
         temp: temperature,
