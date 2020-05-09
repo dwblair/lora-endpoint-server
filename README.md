@@ -1,8 +1,13 @@
 
 # lora endpoint server 
 
-(This has been tested on Ubuntu 18.04)
  
+LoRa gateways and online services typically allow the user to define an 'HTTP endpoint' for sensor data.  This means that when sensor data arrives at the LoRa gateway, it will be packaged into a JSON data structure (including the sensor parameters, but also signal strength, the sensor name, etc) and then relayed via HTTP POST to the URL 'HTTP endpoint' that the user specifies.  This endpoint is typically a server that can receive an HTTP POST request, parse the JSON data, and store it in a database.
+
+Below is a minimal example of an 'HTTP endpoint' server.
+
+(Tested on Ubuntu 18.04)
+
 ## Installation
 
 ### Install nodejs and npm, via nvm
