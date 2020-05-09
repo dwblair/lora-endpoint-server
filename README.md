@@ -70,7 +70,9 @@ Connected to the SQlite database.
 found table 'data'
 ```
 
-**Latest data**. The most recent entries in the database can be retrieved (in JSON format) via your browser at: 
+### Getting the latest data
+
+The most recent entries in the database can be retrieved (in JSON format) via your browser at: 
 
 ```
 [YOUR_IP_ADDRESS]:8000/api/data/latest
