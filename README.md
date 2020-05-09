@@ -1,9 +1,7 @@
 
-# node_basic_3
+# lora endpoint server 
 
-<img src="./example.png">
-
-Below has been tested on Ubuntu 18.04
+(This has been tested on Ubuntu 18.04)
  
 ## Installation
 
