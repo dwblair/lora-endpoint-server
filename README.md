@@ -144,11 +144,19 @@ Every time that this script is run, it should add another entry to the database.
 
 ## Configuration of ChirpStack Applications
 
+Navigate to Applications, and select 'app' ...
+
 <img src="./imgs/chirp1.png">
+
+Now click on the 'INTEGRATIONS' tab ..
 
 <img src="./imgs/chirp2.png">
 
+Now click on 'HTTP' ...
+
 <img src="./imgs/chirp3.png">
+
+Now insert the the URL of your running NodeJS server:
 
 <img src="./imgs/chirp4.png">
 
