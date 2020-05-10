@@ -1,5 +1,5 @@
 
-# lora endpoint server 
+# lora-endpoint-server 
 
 (Tested on Ubuntu 18.04)
  
@@ -7,31 +7,29 @@
 
 LoRa gateways and associated online services typically allow the user to define an optional 'HTTP endpoint' or 'HTTP Integration' URL:  once this URL is defined, sensor data that arrives at the gateway or online service will be relayed via an HTTP POST of the sensor data (in JSON format) to that URL.   This URL must therefore be the address of a server of some sort that is capable of receiving JSON data via HTTP POST and e.g. storing it in a database, graphing it, etc. 
 
-Below is a minimal example of such an'HTTP endpoint' server.  The server (here called 'endpoint_server.js' is based on NodeJS, and it stores and retrieves data to / from an 'sqlite' database -- a particularly straightforward and lightweight database technology that stores its data in a single file (here called 'db.sqlite').
+Below is a minimal example of such an 'HTTP endpoint' server.  The server (here, 'endpoint_server.js') is based on [NodeJS](https://nodejs.); NodeJS is a system that allows for very quick and easy servers to be set up.  The server stores and retrieves data to and from an [sqlite](https://www.sqlite.org/index.html) database; sqlite is a particularly straightforward and lightweight database technology that stores its data in a single file (here, 'db.sqlite').
 
-After installing the necessary prequisites, one can then run the server via the command line from the repository directory by typing:
+After installing the necessary prequisites (detailed below), one can run the server (via the command line) directly from the downloaded repository directory by typing:
 
 ```
 node endpoint_server.js
 ```
 
-The result is that there will now be a server running at the host machine's IP address, at port 8000, which is listening for HTTP POST requests at the following URL:
+This will create a server running which is now listening for HTTP POST requests at the following URL:
 
 ```
 [YOUR_IP_ADDRES]:8000/api/endpoint
 ```
 
-Incoming POST requests to that URL, if properly formatted,  will be stored it in the sqlite database.  
-
-In our server, we are expecting a particularly simple JSON structure:
+Incoming POST requests to that URL will be stored it in the sqlite database, if the the JSON data in the POST has the format:
 
 ```
 {"temperature":"23.2", "humidity":"10.0", "pressure":"1331"}
 ```
 
-The server is expecting a JSON packet in the above form -- the values (23.2,10.0, etc) can vary, but the keys (temperature, humidity, etc) cannot. 
+The values (23.2,10.0, etc) in the JSON can vary, but the keys (temperature, humidity, etc) cannot. 
 
-> Note: we provide a helper script, detailed below, that will POST example JSON data to the server in the proper format.
+> Note: we provide a helper script, detailed below, that will send a properly-formatted JSON packet via POST to the server. 
 
 Any data that is successfully recieved and stored in the database can then later be retrieved by visiting:
 
