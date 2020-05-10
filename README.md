@@ -34,7 +34,7 @@ The values (23.2,10.0, etc) in the JSON can vary, but the keys (temperature, hum
 Any data that is successfully recieved and stored in the database can then later be retrieved by visiting:
 
 ```
-[YOUR_IP_ADDRES]:8000/api/latest
+[YOUR_IP_ADDRES]:8000/api/data/latest
 ```
 
  -- which will provide the data in the browser in JSON format. 
