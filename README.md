@@ -142,22 +142,22 @@ While the server is running in a terminal, open another terminal, and try a test
 
 Every time that this script is run, it should add another entry to the database.
 
-## Configuration of ChirpStack Applications
+## Configuration of ChirpStack Application
 
-Navigate to Applications, and select 'app' ...
+1. Navigate to Applications, and select 'app' ...
 
 <img src="./imgs/chirp1.png">
 
-Now click on the 'INTEGRATIONS' tab ..
+2. Now click on the 'INTEGRATIONS' tab ..
 
 <img src="./imgs/chirp2.png">
 
-Now click on 'HTTP' ...
+2. Now click on 'HTTP' ...
 
 <img src="./imgs/chirp3.png">
 
-Now insert the the URL of your running NodeJS server:
+Now insert the the URL of your running NodeJS server ...
 
 <img src="./imgs/chirp4.png">
 
-
+... and make sure to click on "UPDATE INTEGRATION" at the bottom of that page.
