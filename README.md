@@ -1,6 +1,7 @@
 
 # lora endpoint server 
 
+(Tested on Ubuntu 18.04)
  
 ## Overview
 
@@ -48,8 +49,6 @@ Stored data can also be visualized in a basic graph by visiting:
 
 >More details / functionality detailed below.
 
-(Tested on Ubuntu 18.04)
-
 ## Installation
 
 ### Install nodejs and npm, via nvm
@@ -72,7 +71,7 @@ nvm install 11
 nvm use 11
 ```
 
-(last line may be redundant.
+(last line may be redundant).
 
 
 ### Install sqlite3
