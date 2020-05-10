@@ -142,3 +142,14 @@ While the server is running in a terminal, open another terminal, and try a test
 
 Every time that this script is run, it should add another entry to the database.
 
+## Configuration of ChirpStack Applications
+
+<img src="./imgs/chirp1.png">
+
+<img src="./imgs/chirp2.png">
+
+<img src="./imgs/chirp3.png">
+
+<img src="./imgs/chirp4.png">
+
+
