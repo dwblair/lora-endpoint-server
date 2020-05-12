@@ -64,7 +64,6 @@ app.get("/api/data/latest", (req, res, next) => {
 }); 
 
 // receive an HTTP POST of some JSON data, and stick it into the sqlite database
-//
 app.post("/api/endpoint", (req, res, next) => {
     var errors=[]
 
@@ -76,6 +75,8 @@ app.post("/api/endpoint", (req, res, next) => {
    var humidity = req.body.humidity; 
    var pressure = req.body.pressure; 
 
+   console.log(temperature,humidity,pressure);
+   
    var ts = Math.round((new Date()).getTime() / 1000);
    var tsh = format_time.convert(ts);
 
